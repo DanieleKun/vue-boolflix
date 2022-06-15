@@ -6,7 +6,7 @@
         <p>Lingua Originale: {{moviesObject.original_language}}
         <lang-flag :iso="moviesObject.original_language"/>
         </p>
-        <p>Voto: {{moviesObject.vote_average}}</p>
+        <p>Voto: {{this.ratingCalc}}</p>
     </div>
 </template>
 
@@ -20,6 +20,11 @@ export default {
   },
   props: {
     moviesObject: Object
+  },
+  computed: {
+    ratingCalc() {
+      return Math.ceil(this.moviesObject.vote_average / 2);
+    }
   }
 }
 </script>
