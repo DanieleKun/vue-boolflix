@@ -2,14 +2,21 @@
      <div>
         <h2>Titolo: {{moviesObject.title}}</h2>
         <p>Titolo Originale: {{moviesObject.original_title}}</p>
-        <p>Lingua Originale: {{moviesObject.original_language}}</p>
+        <p>Lingua Originale: {{moviesObject.original_language}}
+        <lang-flag :iso="moviesObject.original_language"/>
+        </p>
         <p>Voto: {{moviesObject.vote_average}}</p>
     </div>
 </template>
 
 <script>
+import LangFlag from 'vue-lang-code-flags';
+
 export default {
   name: 'BfCard',
+  components: {
+    LangFlag,
+  },
   props: {
     moviesObject: Object
   }

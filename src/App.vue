@@ -1,23 +1,19 @@
 <template>
   <div id="app">
     <BfMain/>
-    <!-- <BfCard/> -->
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+
 import BfMain from './components/BfMain.vue'
-// import BfCard from './components/BfCard.vue'
-// import BfSearchBar from './components/BfSearchBar.vue'
+
 
 
 export default {
   name: 'App',
   components: {
     BfMain,
-    // BfCard,
-    // BfSearchBar
   }
 }
 </script>

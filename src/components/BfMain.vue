@@ -1,13 +1,19 @@
 <template>
-  <div id="my_header">
-    <div class="title">
-      <h1>Booflix</h1>
+  <div id="container">
+    <div class="my_header">
+      <div class="title">
+        <h1>Booflix</h1>
+      </div>
+
+      <div class="search_bar">
+        <BfSearchBar @mySearch="searchMovies" />
+      </div>
     </div>
 
-      <BfSearchBar @mySearch="searchMovies"/>
-    
 
-    <BfCard v-for="(item, i) in moviesList" :key="i" :moviesObject="item" />
+    <main id="card_container">
+      <BfCard v-for="(item, i) in moviesList" :key="i" :moviesObject="item" />
+    </main>
   </div>
 </template>
 
@@ -52,7 +58,7 @@ export default {
       }
     },
 
-    searchMovies(userText){
+    searchMovies(userText) {
       this.userInput = userText;
       this.getMovies()
     }
@@ -66,15 +72,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-// #my_header {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   height: 80px;
-//   background-color: black;
+.my_header {
+  height: 80px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-//   h1 {
-//     color: red;
-//   }
-// }
+  h1 {
+  color: red;
+}
+
+  // #card_container{
+  //   display: flex;
+  //   justify-content: space-evenly;
+  //   flex-wrap: wrap;
+  // }
+}
+
+
+
+
 </style>
