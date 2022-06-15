@@ -1,7 +1,7 @@
 <template>
   <div class="my_card">
     <ul>
-      <li>{{moviesObject.title}}</li>
+      <li>{{moviesObject}}</li>
     </ul>
   </div>
 </template>

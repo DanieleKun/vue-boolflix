@@ -7,7 +7,7 @@
       <BfSearchBar @mySearch="searchMovies"/>
     
 
-    <BfCard v-for="(item, i) in moviesList" :key="i" :contentObject="i" />
+    <BfCard v-for="(item, i) in moviesList" :key="i" :moviesObject="item" />
   </div>
 </template>
 
@@ -54,7 +54,7 @@ export default {
 
     searchMovies(userText){
       this.userInput = userText;
-      this.getList()
+      this.getMovies()
     }
 
 
@@ -66,15 +66,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-#my_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-  background-color: black;
+// #my_header {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 80px;
+//   background-color: black;
 
-  h1 {
-    color: red;
-  }
-}
+//   h1 {
+//     color: red;
+//   }
+// }
 </style>

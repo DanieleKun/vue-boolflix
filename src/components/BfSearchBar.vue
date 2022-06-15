@@ -15,7 +15,7 @@ export default {
   },
 
   methods: {
-    inputvalue(){
+    inputValue(){
         this.$emit('mySearch', this.userText)
     }
   }
