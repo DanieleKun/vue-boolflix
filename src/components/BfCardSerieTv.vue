@@ -1,7 +1,8 @@
 <template>
      <div>
-        <h2>Titolo: {{moviesObject.title}}</h2>
-        <p>Titolo Originale: {{moviesObject.original_title}}</p>
+        <img :src="'https://image.tmdb.org/t/p/w200' + moviesObject.poster_path" :alt="moviesObject.title">
+        <h2>Titolo: {{moviesObject.name}}</h2>
+        <p>Titolo Originale: {{moviesObject.original_name}}</p>
         <p>Lingua Originale: {{moviesObject.original_language}}
         <lang-flag :iso="moviesObject.original_language"/>
         </p>
@@ -13,7 +14,7 @@
 import LangFlag from 'vue-lang-code-flags';
 
 export default {
-  name: 'BfCard',
+  name: 'BfCardSerieTv',
   components: {
     LangFlag,
   },

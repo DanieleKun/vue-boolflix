@@ -12,28 +12,34 @@
 
 
     <main id="card_container">
-      <BfCard v-for="(item, i) in moviesList" :key="i" :moviesObject="item" />
+      <BfCardMovie v-for="(item, i) in moviesList" :key="i" :moviesObject="item" />
+      <BfCardSerieTv v-for="(itemTv, j) in serieList" :key="j" :moviesObject="itemTv" />
     </main>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import BfCard from './BfCard.vue';
+import BfCardMovie from './BfCardMovie.vue';
 import BfSearchBar from './BfSearchBar.vue';
+import BfCardSerieTv from './BfCardSerieTv.vue';
+
 
 export default {
   name: 'BfMain',
   components: {
-    BfCard,
-    BfSearchBar
+    BfCardMovie,
+    BfSearchBar,
+    BfCardSerieTv
   },
 
   // API per ricerca film
   data() {
     return {
       apiUrl: "https://api.themoviedb.org/3/search/movie?api_key=e0d448c1e7dce7079f34bc165c15b525&language=it-IT&query=",
+      apiUrlSerie: "https://api.themoviedb.org/3/search/tv?api_key=e0d448c1e7dce7079f34bc165c15b525&language=it-IT&query=",
       moviesList: [],
+      serieList:[],
       userInput: "",
 
     }
@@ -46,11 +52,23 @@ export default {
   methods: {
     getMovies() {
       if (this.userInput !== "") {
+        // Movie
         const myUrl = this.apiUrl + this.userInput;
         axios
           .get(myUrl)
           .then((result) => {
             this.moviesList = result.data.results;
+          })
+          .catch((error) => {
+            console.log("Errore", error);
+          });
+          
+          // serie tv
+          const myUrlSerie = this.apiUrlSerie + this.userInput;
+        axios
+          .get(myUrlSerie)
+          .then((result) => {
+            this.serieList = result.data.results;
           })
           .catch((error) => {
             console.log("Errore", error);
