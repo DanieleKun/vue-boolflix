@@ -1,9 +1,10 @@
 <template>
-  <div class="my_card">
-    <ul>
-      <li>{{moviesObject}}</li>
-    </ul>
-  </div>
+     <div>
+        <h2>Titolo: {{moviesObject.title}}</h2>
+        <p>Titolo Originale: {{moviesObject.original_title}}</p>
+        <p>Lingua Originale: {{moviesObject.original_language}}</p>
+        <p>Voto: {{moviesObject.vote_average}}</p>
+    </div>
 </template>
 
 <script>
