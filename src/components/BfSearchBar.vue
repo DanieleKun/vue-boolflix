@@ -1,12 +1,24 @@
 <template>
-  <div class="hello">
-    
+  <div class="search_bar">
+    <input type="text" placeholder="Search Movie" v-model="userText" @keyup.enter="inputValue">
   </div>
 </template>
 
 <script>
 export default {
   name: 'BfSearchBar',
+
+  data(){
+    return {
+        userText:""
+    }
+  },
+
+  methods: {
+    inputvalue(){
+        this.$emit('mySearch', this.userText)
+    }
+  }
 }
 </script>
 
