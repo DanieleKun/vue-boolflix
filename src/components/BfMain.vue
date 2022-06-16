@@ -11,9 +11,11 @@
     </div>
 
 
-    <main id="card_container">
-      <BfCardMovie v-for="item in moviesList" :key="item.id" :moviesObject="item" />
+    <main>
+      <section class="card_container">
+        <BfCardMovie v-for="item in moviesList" :key="item.id" :moviesObject="item" />
       <BfCardSerieTv v-for="itemTv in serieList" :key="itemTv.id" :moviesObject="itemTv" />
+      </section>
     </main>
   </div>
 </template>
@@ -90,6 +92,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+#container{
+  background-color: gray;
+}
 .my_header {
   height: 80px;
   background-color: black;
@@ -101,11 +107,12 @@ export default {
   color: red;
 }
 
-  // #card_container{
-  //   display: flex;
-  //   justify-content: space-evenly;
-  //   flex-wrap: wrap;
-  // }
+}
+
+.card_container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 
