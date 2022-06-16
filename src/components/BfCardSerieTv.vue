@@ -1,6 +1,6 @@
 <template>
      <div>
-        <img :src="'https://image.tmdb.org/t/p/w200' + moviesObject.poster_path" :alt="moviesObject.title">
+        <img :src="'https://image.tmdb.org/t/p/w342' + moviesObject.poster_path" :alt="moviesObject.title">
         <h2>Titolo: {{moviesObject.name}}</h2>
         <p>Titolo Originale: {{moviesObject.original_name}}</p>
         <p>Lingua Originale: {{moviesObject.original_language}}

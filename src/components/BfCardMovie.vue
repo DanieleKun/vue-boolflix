@@ -6,7 +6,11 @@
         <p>Lingua Originale: {{moviesObject.original_language}}
         <lang-flag :iso="moviesObject.original_language"/>
         </p>
-        <p>Voto: {{this.ratingCalc}}</p>
+        <!-- <p>Voto: {{this.ratingCalc}}</p> -->
+        <span>Voto: </span>
+        <span>
+          <font-awesome-icon v-for="(myStar, i) in ratingCalc()" :key="i" icon="fa-solid fa-star" />
+        </span>
     </div>
 </template>
 
@@ -21,9 +25,9 @@ export default {
   props: {
     moviesObject: Object
   },
-  computed: {
+  methods: {
     ratingCalc() {
-      return Math.ceil(this.moviesObject.vote_average / 2);
+      return Math.round(this.moviesObject.vote_average / 2);
     }
   }
 }

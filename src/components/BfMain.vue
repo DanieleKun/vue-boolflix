@@ -12,8 +12,8 @@
 
 
     <main id="card_container">
-      <BfCardMovie v-for="(item, i) in moviesList" :key="i" :moviesObject="item" />
-      <BfCardSerieTv v-for="(itemTv, j) in serieList" :key="j" :moviesObject="itemTv" />
+      <BfCardMovie v-for="item in moviesList" :key="item.id" :moviesObject="item" />
+      <BfCardSerieTv v-for="itemTv in serieList" :key="itemTv.id" :moviesObject="itemTv" />
     </main>
   </div>
 </template>
