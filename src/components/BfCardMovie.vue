@@ -9,7 +9,7 @@
         <p><strong>Lingua Originale:</strong> {{moviesObject.original_language}}
         <lang-flag :iso="moviesObject.original_language"/>
         </p>
-        <!-- <p>Voto: {{this.ratingCalc}}</p> -->
+
         <span><strong>Voto:</strong> </span>
         <span>
           <font-awesome-icon v-for="(myStar, i) in ratingCalc()" :key="i" icon="fa-solid fa-star" />

@@ -28,6 +28,12 @@ export default {
   },
   props: {
     moviesObject: Object
+  },
+
+    methods: {
+    ratingCalc() {
+      return Math.round(this.moviesObject.vote_average / 2);
+    }
   }
 }
 </script>
