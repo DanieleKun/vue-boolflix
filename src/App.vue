@@ -24,6 +24,22 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Scrollbar */
+*::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: black;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: rgb(79, 79, 79);
+    border-radius: 20px;
+    border: 2px solid rgb(79, 79, 79);;
+  }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

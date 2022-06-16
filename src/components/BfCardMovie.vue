@@ -1,21 +1,21 @@
 <template>
-  <div class="my_card">
+  <div  @mouseover="hover = true" @mouseleave="hover = false" class="my_card">
         <img :src="'https://image.tmdb.org/t/p/w342' + moviesObject.poster_path" :alt="moviesObject.title">
         
 
-        <div class="show_text">
-          <h2>Titolo: {{moviesObject.title}}</h2>
-        <p>Titolo Originale: {{moviesObject.original_title}}</p>
-        <p>Lingua Originale: {{moviesObject.original_language}}
+        <div v-if="hover" class="show_text">
+          <h2><strong>Titolo:</strong> {{moviesObject.title}}</h2>
+        <p><strong>Titolo Originale:</strong> {{moviesObject.original_title}}</p>
+        <p><strong>Lingua Originale:</strong> {{moviesObject.original_language}}
         <lang-flag :iso="moviesObject.original_language"/>
         </p>
         <!-- <p>Voto: {{this.ratingCalc}}</p> -->
-        <span>Voto: </span>
+        <span><strong>Voto:</strong> </span>
         <span>
           <font-awesome-icon v-for="(myStar, i) in ratingCalc()" :key="i" icon="fa-solid fa-star" />
-          <font-awesome-icon v-for="(myHalfStar, j) in (5 - ratingCalc())" :key="j" icon="fa-regular fa-star" />
+          <font-awesome-icon v-for="(myEmptyStar, j) in (5 - ratingCalc())" :key="j" icon="fa-regular fa-star" />
         </span>
-        <p>Descrizione: {{moviesObject.overview}}</p>
+        <p><strong>Descrizione:</strong> {{moviesObject.overview}}</p>
         </div>
     </div>
 </template>
@@ -30,6 +30,12 @@ export default {
   },
   props: {
     moviesObject: Object
+  },
+
+  data() {
+    return {
+      hover: false,
+    }
   },
 
   methods: {
@@ -67,10 +73,8 @@ export default {
       height: 100%;
       background-color: rgba(0, 0, 0, 0.8);
       padding: 10px;
-
-        // &:hover{
-        //   display: inline-block;
-        // }
+      overflow: auto;
+      
     }
 
   }

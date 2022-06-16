@@ -107,6 +107,10 @@ export default {
   color: red;
 }
 
+.title, .search_bar{
+  margin: 0 20px;
+}
+
 }
 
 .card_container{
